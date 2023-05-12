@@ -686,7 +686,7 @@ void GraphModifier::changeSelectionMode()
 {
     static int selectionMode = m_graph->selectionMode();
 
-    if (++selectionMode > (QAbstract3DGraph::SelectionItemAndColumn | QAbstract3DGraph::SelectionSlice | QAbstract3DGraph::SelectionMultiSeries))
+    if (++selectionMode > static_cast<int>(QAbstract3DGraph::SelectionItemAndColumn | QAbstract3DGraph::SelectionSlice | QAbstract3DGraph::SelectionMultiSeries))
         selectionMode = QAbstract3DGraph::SelectionNone;
 
     m_graph->setSelectionMode((QAbstract3DGraph::SelectionFlag)selectionMode);
